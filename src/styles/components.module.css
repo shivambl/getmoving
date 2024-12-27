@@ -1,0 +1,121 @@
+/* App Layout */
+.appContainer {
+    @apply min-h-screen flex items-center justify-center bg-gray-100;
+}
+
+/* Workout Component */
+.workoutCard {
+    @apply bg-white rounded-lg shadow-lg p-6 max-w-md w-full;
+}
+
+.workoutHeader {
+    @apply flex justify-between items-center mb-4;
+}
+
+.workoutTitle {
+    @apply text-2xl font-bold;
+}
+
+.workoutTitleInput {
+    @apply text-2xl font-bold bg-gray-50 px-2 py-1 rounded border border-gray-300 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500;
+}
+
+.editButton {
+    @apply px-3 py-1 text-sm text-blue-600 border border-blue-600 rounded hover:bg-blue-50 transition-colors;
+}
+
+.addButton {
+    @apply w-full mt-2 px-3 py-2 text-sm text-green-600 border border-green-600 rounded hover:bg-green-50 transition-colors flex items-center justify-center gap-2;
+}
+
+.deleteButton {
+    @apply p-1 ml-2 text-red-600 hover:bg-red-50 rounded-full transition-colors;
+}
+
+.intervalsContainer {
+    @apply space-y-4;
+}
+
+.intervalItem {
+    @apply flex justify-between items-center p-3 bg-gray-50 rounded;
+}
+
+.intervalContent {
+    @apply flex justify-between items-center flex-1;
+}
+
+.intervalAction {
+    @apply font-medium text-gray-700 cursor-pointer;
+}
+
+.intervalDuration {
+    @apply text-gray-600 cursor-pointer;
+}
+
+.intervalInput {
+    @apply px-2 py-1 bg-white rounded border border-gray-300 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500;
+}
+
+.intervalActionInput {
+    @apply font-medium text-gray-700 w-32 appearance-none bg-white cursor-pointer;
+}
+
+.intervalDurationInput {
+    @apply text-gray-600 w-16 text-right;
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+.intervalDurationInput::-webkit-outer-spin-button,
+.intervalDurationInput::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.totalTime {
+    @apply mt-6 pt-4 border-t;
+}
+
+.totalTimeText {
+    @apply text-gray-600 text-sm;
+}
+
+.reorderButton {
+    @apply p-1 text-gray-400 hover:text-gray-600 hover:bg-gray-200 rounded transition-colors;
+}
+
+.reorderButtons {
+    @apply flex flex-col mr-3;
+}
+
+.playerContainer {
+    @apply mb-6 pb-4 border-b;
+}
+
+.playerControls {
+    @apply flex justify-center gap-4;
+}
+
+.playButton, .pauseButton, .skipButton {
+    @apply p-4 text-2xl bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors w-16 h-16 flex items-center justify-center;
+}
+
+.playerStatus {
+    @apply mt-4 text-center;
+}
+
+.currentAction {
+    @apply text-xl font-bold text-gray-700;
+}
+
+.timeRemaining {
+    @apply text-3xl font-mono mt-2;
+}
+
+.progressBarContainer {
+    @apply mt-4 h-2 bg-gray-200 rounded-full overflow-hidden;
+}
+
+.progressBar {
+    @apply h-full bg-blue-600 transition-all duration-100;
+}
