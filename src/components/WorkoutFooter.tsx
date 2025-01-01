@@ -1,5 +1,6 @@
 import { Interval } from "../types";
 import styles from "../styles/components.module.css";
+import { formatDuration } from "../utils";
 
 interface WorkoutFooterProps {
     intervals: Interval[];
@@ -7,16 +8,14 @@ interface WorkoutFooterProps {
 
 const WorkoutFooter = ({ intervals }: WorkoutFooterProps) => {
     const totalDuration = intervals.reduce((sum, interval) => sum + interval.duration, 0);
-    const minutes = Math.floor(totalDuration / 60);
-    const seconds = totalDuration % 60;
 
     return (
         <div className={styles.totalTime}>
             <p className={styles.totalTimeText}>
-                Total Duration: {minutes}:{seconds.toString().padStart(2, '0')}
+                Total Duration: {formatDuration(totalDuration)}
             </p>
         </div>
     );
 };
 
-export default WorkoutFooter; 
+export default WorkoutFooter;

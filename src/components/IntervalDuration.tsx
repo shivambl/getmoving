@@ -1,4 +1,5 @@
 import styles from "../styles/components.module.css";
+import { formatDuration } from "../utils";
 
 interface IntervalDurationProps {
     duration: number;
@@ -8,15 +9,15 @@ interface IntervalDurationProps {
 
 const IntervalDuration = ({ duration, isEditing, onChange }: IntervalDurationProps) => {
     if (!isEditing) {
-        return <div className={styles.intervalDuration}>{duration}s</div>;
+        return <div className={styles.intervalDuration}>{formatDuration(duration)}</div>;
     }
 
     return (
         <input
             type="number"
             value={duration}
-            onChange={(e) => onChange(Math.max(1, parseInt(e.target.value) || 0))}
-            min="1"
+            onChange={(e) => onChange(Math.max(0, parseInt(e.target.value) || 0))}
+            min="0"
             className={`${styles.intervalInput} ${styles.intervalDurationInput}`}
         />
     );
