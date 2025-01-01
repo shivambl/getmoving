@@ -1,18 +1,22 @@
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../types';
 import styles from "../styles/components.module.css";
 
-const WorkoutPlayer = ({ workout }) => {
+const WorkoutPlayer = () => {
+    const workout = useSelector((state: RootState) => state.workouts.workouts[0]); // For now, using first workout
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentInterval, setCurrentInterval] = useState(0);
     const [timeRemaining, setTimeRemaining] = useState(0);
     
-    // Calculate progress percentage
+    if (!workout) return null;
+
     const currentDuration = workout.intervals[currentInterval]?.duration || 0;
     const timeElapsed = currentDuration - timeRemaining;
     const progress = (timeElapsed / currentDuration) * 100;
 
     useEffect(() => {
-        let timer;
+        let timer: NodeJS.Timeout;
         if (isPlaying && timeRemaining > 0) {
             timer = setInterval(() => {
                 setTimeRemaining(time => time - 1);
@@ -47,14 +51,14 @@ const WorkoutPlayer = ({ workout }) => {
         }
     };
 
-    const formatTime = (seconds) => {
+    const formatTime = (seconds: number): string => {
         const mins = Math.floor(seconds / 60);
         const secs = seconds % 60;
         return `${mins}:${secs.toString().padStart(2, '0')}`;
     };
 
     return (
-        <div className={styles.playerContainer}>
+        <div className={`${styles.cardContainer} ${styles.playerContainer}`}>
             <div className={styles.playerControls}>
                 {!isPlaying ? (
                     <button onClick={handlePlay} className={styles.playButton}>

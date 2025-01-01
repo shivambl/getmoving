@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ACTIONS } from '../constants';
-import { WorkoutState, Workout, WorkoutWithoutId } from '../types';
+import { ACTIONS } from '../constants.ts';
+import { WorkoutState, Workout, WorkoutWithoutId } from '../types.ts';
 
-const dummyWorkout: Workout = {
+const dummyWorkout1: Workout = {
     id: '1',
     name: "Simplest Run",
     intervals: [
@@ -12,8 +12,18 @@ const dummyWorkout: Workout = {
     ]
 };
 
+const dummyWorkout2: Workout = {
+    id: '2',
+    name: "Simple Sprint",
+    intervals: [
+        { action: ACTIONS.WALK, duration: 10 },
+        { action: ACTIONS.SPRINT, duration: 30 },
+        { action: ACTIONS.REST, duration: 10 }
+    ]
+};
+
 const initialState: WorkoutState = {
-    workouts: [dummyWorkout],
+    workouts: [dummyWorkout1, dummyWorkout2],
 };
 
 const workoutsSlice = createSlice({

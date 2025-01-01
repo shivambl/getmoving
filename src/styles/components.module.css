@@ -1,11 +1,16 @@
 /* App Layout */
 .appContainer {
-    @apply min-h-screen flex items-center justify-center bg-gray-100;
+    @apply min-h-screen flex flex-col items-center justify-center bg-gray-100 pt-8;
+}
+
+/* Workout List */
+.cardList {
+    @apply flex flex-col gap-6 p-6 w-full max-w-3xl;
 }
 
 /* Workout Component */
-.workoutCard {
-    @apply bg-white rounded-lg shadow-lg p-6 max-w-md w-full;
+.cardContainer {
+    @apply bg-white rounded-lg shadow-lg p-6 w-full;
 }
 
 .workoutHeader {
@@ -41,7 +46,7 @@
 }
 
 .intervalContent {
-    @apply flex justify-between items-center flex-1;
+    @apply flex justify-between items-center flex-1 gap-4;
 }
 
 .intervalAction {
